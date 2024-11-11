@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %} Цветы {% endblock %}
+{% block title %}Название компании{% endblock %}
 
 {% block content %}
     <H1> HELLO </H1>
