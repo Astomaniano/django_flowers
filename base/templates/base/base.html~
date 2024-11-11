@@ -29,13 +29,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'base:index' %}">Каталог</a>
+                        <a class="nav-link" href="{% url 'index' %}">Каталог</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'base:index' %}">О нас</a>
+                        <a class="nav-link" href="{% url 'index' %}">О нас</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'base:index' %}">Контакты</a>
+                        <a class="nav-link" href="{% url 'index' %}">Контакты</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

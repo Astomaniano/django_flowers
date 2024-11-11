@@ -39,7 +39,7 @@ def profile(request):
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('base:index')  # Перенаправляем на страницу профиля после успешного сохранения
+            return redirect('base:home')  # Перенаправляем на страницу профиля после успешного сохранения
     else:
         form = UserUpdateForm(instance=request.user)
 
