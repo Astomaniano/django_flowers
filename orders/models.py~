@@ -27,7 +27,7 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return f"# {self.id} - {self.product} - {self.created_at}"
+        return f"{self.id} by {self.product}"
 
 @receiver(post_save, sender=Order)
 def create_manage_order(sender, instance, created, **kwargs):

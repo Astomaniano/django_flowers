@@ -15,8 +15,8 @@ class ManageOrder(models.Model):
     manager_comment = models.TextField(blank=True, null=True)
 
     class Meta:
-        verbose_name = 'Заказ'
-        verbose_name_plural = 'Заказы'
+        verbose_name = 'Управление заказами'
+        verbose_name_plural = 'Управление заказами'
 
         def __str__(self):
-            return self.first_name
+            return self.order_id, self.status, self.manager_comment
