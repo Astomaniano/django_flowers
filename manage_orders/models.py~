@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib import admin
 
 class ManageOrder(models.Model):
     order_id = models.ForeignKey('orders.Order', on_delete=models.CASCADE)
@@ -15,8 +16,15 @@ class ManageOrder(models.Model):
     manager_comment = models.TextField(blank=True, null=True)
 
     class Meta:
-        verbose_name = 'Управление заказами'
-        verbose_name_plural = 'Управление заказами'
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
 
         def __str__(self):
-            return self.order_id, self.status, self.manager_comment
+            return self.first_name
+
+class ManageOrderAdmin(admin.ModelAdmin):
+    list_display = ('order_id', 'first_name', 'last_name', 'phone_number', 'status')
+
+    def order_id(self, obj):
+        return obj.order_id.order_number
+    order_id.short_description = 'Заказ №'

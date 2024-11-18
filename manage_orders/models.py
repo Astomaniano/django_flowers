@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib import admin
 
 class ManageOrder(models.Model):
     order_id = models.ForeignKey('orders.Order', on_delete=models.CASCADE)
