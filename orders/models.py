@@ -27,7 +27,8 @@ class Order(models.Model):
         verbose_name_plural = 'Заказы'
 
     def __str__(self):
-        return f"# {self.id} - {self.product} - {self.created_at}"
+        formatted_date = self.created_at.strftime("%Y-%m-%d %H:%M:%S")
+        return f"# {self.id} - {self.product} - {formatted_date}"
 
 @receiver(post_save, sender=Order)
 def create_manage_order(sender, instance, created, **kwargs):
