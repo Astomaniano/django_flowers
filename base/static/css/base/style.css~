@@ -1,5 +1,5 @@
 .btn-primary {
-    background-color: rgb(193, 52, 13);
+    background-color: rgb(214, 50, 3);
     border-color: #ff0000;
     font-weight: bold;
     font-style: italic;
@@ -9,4 +9,18 @@
     background-color: #ff0000 !important; /* Красный фон при наведении */
     border-color: #cc0000 !important; /* Чуть темнее красная граница */
     color: #ffc500 !important; /* Белый текст при наведении */
+}
+
+.navbar-custom {
+    background-color: #5999da; /* Замените на желаемый цвет фона */
+    border-bottom: 2px solid #ff5733; /* Пример цветной нижней границы */
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #ffffff; /* Цвет текста */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ff5733; /* Цвет текста при наведении */
 }
