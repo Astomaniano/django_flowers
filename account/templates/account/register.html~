@@ -1,9 +1,25 @@
 {% extends "base/base.html" %}
+
+{% load static %}
+
 {% block content %}
-  <h2>Регистрация</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Зарегистрироваться</button>
-  </form>
+<link rel="stylesheet" type="text/css" href="{% static 'account/style.css' %}">
+    <br>
+    <br>
+<div class="container d-flex flex-column justify-content-center align-items-center page-container">
+    <blockquote class="blockquote text-center">
+        <p class="mb-2">Сколько бы мы ни говорили о пустоте жизни, иногда достаточно лишь одного цветка, чтобы нас разубедить.</p>
+        <span class="lead larger-text"><em>(c)Анатоль Франс</em></span>
+    </blockquote>
+    <div class="registration-container mt-4">
+        <div class="registration-form card p-4 shadow">
+            <h2 class="text-center mb-4">Регистрация</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

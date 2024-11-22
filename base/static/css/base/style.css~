@@ -1,0 +1,12 @@
+.btn-primary {
+    background-color: rgb(193, 52, 13);
+    border-color: #ff0000;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.btn-primary:hover {
+    background-color: #ff0000 !important; /* Красный фон при наведении */
+    border-color: #cc0000 !important; /* Чуть темнее красная граница */
+    color: #ffc500 !important; /* Белый текст при наведении */
+}

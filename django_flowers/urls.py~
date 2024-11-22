@@ -21,11 +21,16 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_header = "Название вашей компании"
+admin.site.index_title = "Администрирование"
+admin.site.site_title = "Панель администратора"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
     path('account/', include('account.urls')),
     path('catalog/', include('catalog.urls')),
+    path('orders/', include('orders.urls')),
+
 ]
 
 if settings.DEBUG:

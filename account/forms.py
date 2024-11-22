@@ -1,14 +1,34 @@
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
+from django.core.validators import MaxValueValidator
 
 User = get_user_model()
 
 class CustomUserCreationForm(UserCreationForm):
+    phone_number = forms.IntegerField(
+        validators=[MaxValueValidator(99999999999)],  # Максимум для 11 цифр
+        help_text='Введите корректный номер телефона до 11 цифр.',
+        widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Введите номер телефона'})
+    )
+
+    password2 = forms.CharField(
+        label='Подтверждение пароля',
+        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        help_text=''
+    )
 
     class Meta:
         model = User
         fields = ['username', 'email', 'phone_number', 'password1', 'password2']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
+            'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
+
 
 class UserLoginForm(forms.Form):
     username = forms.CharField()
