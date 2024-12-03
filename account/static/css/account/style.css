@@ -71,10 +71,6 @@
     color: #e3342f !important;
 }
 
-/* Для выравнивания меток и полей */
-.form-group {
-    margin-bottom: 1rem;
-}
 
 .col-form-label {
     text-align: right; /* Подписи выровнены по правому краю */
@@ -129,5 +125,5 @@ select {
 .form-group small {
   font-size: 0.9rem;
   color: rgba(0, 0, 0, 0.6);
-  margin-top: 2px;
+  display: block;
 }

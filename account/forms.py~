@@ -3,8 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.validators import MaxValueValidator
-
-User = get_user_model()
+from .models import User
 
 class CustomUserCreationForm(UserCreationForm):
     phone_number = forms.IntegerField(
@@ -35,8 +34,26 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 
 class UserUpdateForm(forms.ModelForm):
-    email = forms.EmailField()
+    username = forms.CharField(help_text='')
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ('username', 'email', 'first_name', 'last_name', 'phone_number')
+
+        def clean_username(self):
+            username = self.cleaned_data['username']
+            if not username:
+                raise forms.ValidationError('Пожалуйста, введите логин')
+            if len(username) > 150:
+                raise forms.ValidationError('Логин не может быть более 150 символов')
+            if not username.isalnum() and not any(char in username for char in '@/./+/-/_'):
+                raise forms.ValidationError('Логин может содержать только буквы, цифры и символы @/./+/-/_')
+            return username
+
+        def clean_phone_number(self):
+            phone_number = self.cleaned_data['phone_number']
+            if not phone_number:
+                raise forms.ValidationError('Пожалуйста, введите номер телефона')
+            if not phone_number.isdigit():
+                raise forms.ValidationError('Номер телефона должен состоять только из цифр')
+            return phone_number
