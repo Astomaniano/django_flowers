@@ -47,3 +47,87 @@
     margin-top: 10px;
     display: block;
 }
+
+.btn-primary {
+    background-color: rgb(214, 50, 3);
+    border-color: #ff0000;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.btn-primary:hover {
+    background-color: #ff0000 !important;
+    border-color: #cc0000 !important;
+    color: #ffc500 !important;
+}
+
+.form-text {
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.text-danger {
+    font-size: 0.9rem;
+    color: #e3342f !important;
+}
+
+/* Для выравнивания меток и полей */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.col-form-label {
+    text-align: right; /* Подписи выровнены по правому краю */
+    font-weight: bold; /* Выделение текста подписей */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    width: 100%; /* Поля занимают всю доступную ширину */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Контейнер формы */
+.form-vertical {
+    display: flex;
+    flex-direction: column; /* Элементы формы выстроены в столбик */
+    align-items: flex-start; /* Выровнены по левому краю */
+    gap: 1rem; /* Расстояние между строками */
+}
+
+/* Поля ввода и метки */
+.form-group {
+    display: flex;
+    align-items: center; /* Центрирование поля ввода относительно метки */
+    width: 100%; /* Группы занимают всю ширину */
+}
+
+.form-label {
+    min-width: 200px; /* Ширина для подписи */
+    text-align: right; /* Выравнивание текста в подписи */
+    margin-right: 10px; /* Отступ от поля */
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+    flex-grow: 1; /* Поля ввода растягиваются, занимая всю оставшуюся ширину */
+    max-width: 400px; /* Максимальная ширина поля */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group small {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 2px;
+}

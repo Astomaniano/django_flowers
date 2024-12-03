@@ -43,5 +43,20 @@ def create_order(request, product_id):
 
     return render(request, 'orders/create_orders.html', {'product': product, 'user': request.user})
 
+@login_required
+def repeat_order(request, order_id):
+    original_order = get_object_or_404(Order, id=order_id, user=request.user)
+    # Создаем новый заказ на основе оригинального
+    new_order = Order.objects.create(
+        user=original_order.user,
+        first_name=original_order.first_name,
+        last_name=original_order.last_name,
+        product=original_order.product,
+        address=original_order.address,
+        user_comment=original_order.user_comment,
+        phone_number=original_order.phone_number,
+    )
+    return redirect('account:profile')  # Перенаправляем пользователя обратно в профиль
+
 def order_success(request):
     return render(request, 'orders/order_success.html')

@@ -33,9 +33,10 @@ def create_order(request, product_id):
             user=request.user,
             product=product,
             address=address,
-            comment=comment,
+            user_comment=comment,
             first_name=first_name,
-            last_name=last_name
+            last_name=last_name,
+            phone_number=phone_number
         )
 
         return redirect('orders:order_success')  # Перенаправляем на страницу подтверждения или успеха

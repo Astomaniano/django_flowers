@@ -10,3 +10,16 @@
     border-color: #cc0000 !important; /* Чуть темнее красная граница */
     color: #ffc500 !important; /* Белый текст при наведении */
 }
+
+.form-text {
+    font-size: 0.9rem; /* Мелкий текст для подсказок */
+}
+
+.text-muted {
+    color: rgba(0, 0, 0, 0.6) !important; /* Полупрозрачный текст */
+}
+
+.text-danger {
+    font-size: 0.9rem; /* Мелкий текст для ошибок */
+    color: #e3342f !important; /* Более заметный красный */
+}

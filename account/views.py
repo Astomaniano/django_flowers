@@ -3,6 +3,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from .forms import CustomUserCreationForm, UserLoginForm, UserUpdateForm
+from orders.models import Order
 
 User = get_user_model()  # Используем кастомную модель пользователя
 
@@ -39,12 +40,16 @@ def profile(request):
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('base:index')  # Перенаправляем на страницу профиля после успешного сохранения
+            return redirect('account:profile')  # Перенаправление на профиль после сохранения
     else:
         form = UserUpdateForm(instance=request.user)
 
-    return render(request, 'account/profile.html', {'form': form})
+    # Получение заказов текущего пользователя
+    orders = Order.objects.filter(user=request.user).order_by('-created_at')
 
+    return render(request, 'account/profile.html', {'form': form, 'orders': orders})
 def logout_view(request):
     logout(request)
     return redirect('base:index')
+
+
