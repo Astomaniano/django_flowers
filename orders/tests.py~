@@ -54,7 +54,15 @@ class OrderTestCase(TestCase):
 
 #Этот тест проверяет создание заказа и создание соответствующего объекта ManageOrder
     def test_orders_by_user(self):
-
+        Order.objects.create(
+            user=self.user,
+            first_name='Test',
+            last_name='User',
+            product=self.product,
+            address='Test Address',
+            phone_number='1234567890',
+            status='new'
+        )
         Order.objects.create(
             user=self.user,
             first_name='Test2',
