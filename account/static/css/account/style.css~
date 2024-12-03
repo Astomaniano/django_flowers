@@ -99,7 +99,7 @@ select {
 /* Поля ввода и метки */
 .form-group {
     display: flex;
-    flex-direction: row; /* Измените направление на column */
+    flex-direction: row-reverse; /* Измените направление на column */
     width: 100%; /* Группы занимают всю ширину */
     margin-bottom: 0.5rem; /* Уменьшите расстояние между строками */
 }
