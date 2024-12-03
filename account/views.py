@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from .forms import CustomUserCreationForm, UserLoginForm, UserUpdateForm
 from orders.models import Order
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
 
 User = get_user_model()  # Используем кастомную модель пользователя
 
@@ -52,4 +54,16 @@ def logout_view(request):
     logout(request)
     return redirect('base:index')
 
-
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Пароль успешно изменён!')
+            return redirect('account:profile')
+        else:
+            messages.error(request, 'Ошибка при изменении пароля. Пожалуйста, проверьте введённые данные.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'account/change_password.html', {'form': form})

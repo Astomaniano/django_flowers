@@ -26,7 +26,10 @@
               {% endfor %}
             </div>
             {% endfor %}
-            <button type="submit" class="btn btn-primary" style="display: block; margin: 0 auto;">Сохранить изменения</button>
+           <div class="d-flex text-right">
+            <button type="button" class="btn btn-secondary mr-2" onclick="location.href='{% url 'account:change_password' %}'">Сменить пароль</button>
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+          </div>
           </form>
         </div>
       </div>
